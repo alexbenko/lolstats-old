@@ -4,7 +4,8 @@ import exampleProfileData from '../example/exampleProfileData';
 import Profile from './Profile.js'
 import Search from './Search.js'
 import RIOT_API_KEY from '../config/rito.js';
-
+//right now only works with NA accounts
+//can set up a drop down menu for user to select region
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -15,19 +16,24 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Daddy%20Thick?api_key=${RIOT_API_KEY}`)
+    //only way i was able to access Riot api was using this proxy
+    //https://github.com/Rob--W/cors-anywhere/
+    var proxy = 'https://cors-anywhere.herokuapp.com/';
+    var target = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Sneaky?api_key=${RIOT_API_KEY}`;
+    fetch(proxy + target)
      .then(res => res.json())
      .then(
        (result) =>{
+         console.log('Sucess!')
+         console.log(result)
          this.setState({
-          loaded:true,
           currentProfile: result
          });
        },
 
        (fail) =>{
-         console.log(fail);
-        console.log("Failed!")
+         console.log('Failed: ',fail);
+
        }
     )
   }
