@@ -6,6 +6,7 @@ import Search from './Search.js'
 import RIOT_API_KEY from '../config/rito.js';
 //right now only works with NA accounts
 //can set up a drop down menu for user to select region
+
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -20,6 +21,7 @@ class App extends React.Component {
     //https://github.com/Rob--W/cors-anywhere/
     var proxy = 'https://cors-anywhere.herokuapp.com/';
     var target = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Sneaky?api_key=${RIOT_API_KEY}`;
+
     fetch(proxy + target)
      .then(res => res.json())
      .then(
@@ -27,7 +29,8 @@ class App extends React.Component {
          console.log('Sucess!')
          console.log(result)
          this.setState({
-          currentProfile: result
+           loaded:true,
+           currentProfile: result
          });
        },
 
@@ -40,6 +43,11 @@ class App extends React.Component {
 
 
   render() {
+    let {loaded} = this.state;
+    if(!loaded){
+      return <h1>Loading...</h1>
+    }
+
     return (
       <div>
         <h1>LOLStats</h1>
