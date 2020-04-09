@@ -12,11 +12,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div>
+        <h1>LOLStats</h1>
+        <div>
 
-
-        </header>
+        </div>
       </div>
     );
   };
