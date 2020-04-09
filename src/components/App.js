@@ -3,6 +3,7 @@ import '../styles/App.css';
 import exampleProfileData from '../example/exampleProfileData';
 import Profile from './Profile.js'
 import Search from './Search.js'
+import loading from '../images/teemo_dance.gif'
 import RIOT_API_KEY from '../config/rito.js';
 //right now only works with NA accounts
 //can set up a drop down menu for user to select region
@@ -22,7 +23,7 @@ class App extends React.Component {
     var proxy = 'https://cors-anywhere.herokuapp.com/';
     var target = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Sneaky?api_key=${RIOT_API_KEY}`;
 
-    fetch(proxy + target)
+    fetch(/*proxy + target*/)
      .then(res => res.json())
      .then(
        (result) =>{
@@ -35,7 +36,11 @@ class App extends React.Component {
        },
 
        (fail) =>{
-         console.log('Failed: ',fail);
+        console.log(fail);
+         this.setState({
+           loaded:false
+         })
+
 
        }
     )
@@ -43,9 +48,21 @@ class App extends React.Component {
 
 
   render() {
+
     let {loaded} = this.state;
+
+
     if(!loaded){
-      return <h1>Loading...</h1>
+      return (
+        <div className="loading">
+          <h1>LOLStats</h1>
+          <nav className="nav">
+          <Search />
+           </nav>
+           <h1>Loading...</h1>
+           <img src={loading} alt="" />
+        </div>
+      )
     }
 
     return (
