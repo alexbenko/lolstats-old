@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/App.css';
 import exampleProfileData from '../example/exampleProfileData';
 import Profile from './Profile.js'
+import Search from './Search.js'
 
 class App extends React.Component {
   constructor(props){
@@ -16,8 +17,12 @@ class App extends React.Component {
     return (
       <div>
         <h1>LOLStats</h1>
+        <nav className="nav">
+          <Search />
+        </nav>
+
         <div className ='prof'>
-          <Profile />
+          <Profile profile={this.state.currentProfile} />
         </div>
       </div>
     );
