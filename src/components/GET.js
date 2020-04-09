@@ -9,7 +9,7 @@ var searchForProfile = ({search,key},cb) => {
      .then(
        (result) =>{
          console.log('Sucess!')
-         console.log(result)
+
          if(cb){
            cb(result)
          }
@@ -17,6 +17,7 @@ var searchForProfile = ({search,key},cb) => {
        },
 
        (fail) =>{
+         alert('Pleas Enter A Valid Summoner Name');
         console.log(fail);
        }
     )
