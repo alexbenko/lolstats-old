@@ -7371,8 +7371,15 @@ var champData = {
     }
   }
 };
+var champions = {};
 
 for(var key in champData['data']){
-  console.log(champData['data'][key]['id']) //prints all the individual champ names
-  console.log(champData['data'][key]['key']) //logs all the keys i need
+  let currentChampKey = champData['data'][key]['key'];
+
+  if(champions[currentChampKey] === undefined){
+    champions[currentChampKey] = champData['data'][key]['name'];
+  }
 }
+
+
+console.log(champions); //should be an object with each key value pair being champname and corresponding key . Works !! now i can easily export it to display each summoners 3 most played champs
