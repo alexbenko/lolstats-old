@@ -1,1 +1,1 @@
-![LOLSTats Demo](app.gif)
+![LOLSTats Demo](/app.gif)
