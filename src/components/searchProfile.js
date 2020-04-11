@@ -17,7 +17,7 @@ var searchForProfile = ({search,key},cb) => {
        },
 
        (fail) =>{
-         alert('Pleas Enter A Valid Summoner Name');
+
         console.log(fail);
        }
     )
