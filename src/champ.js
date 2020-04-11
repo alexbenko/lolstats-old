@@ -7381,7 +7381,7 @@ for(var key in champData['data']){
   }
 }
 
-//wanna keep track of all this info since it was a long process finding it but this is the object it creates
+//wanna keep track of all this info since it was a long process finding it but this is the object the algorithm creates
 
 var champInfo = {
 '1': 'Annie',
@@ -7533,6 +7533,6 @@ var champInfo = {
 '555': 'Pyke',
 '875': 'Sett' };
 
-export defualt champInfo;
+export defualt {champInfo}
 
 //should be an object with each key value pair being key and corresponding name . Works !! now i can easily export it to display each summoners 3 most played champs
