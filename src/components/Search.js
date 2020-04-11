@@ -13,7 +13,8 @@ class Search extends React.Component{
     console.log(search)
     this.props.handleSearchChange(search.target.value);
     this.setState({
-      value: search.target.value
+      value: search.target.value,
+      loaded: false
     })
   }
   render(){
