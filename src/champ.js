@@ -7531,8 +7531,7 @@ var champInfo = {
 '518': 'Neeko',
 '523': 'Aphelios',
 '555': 'Pyke',
-'875': 'Sett' };
+'875': 'Sett'
+};
 
-export defualt {champInfo}
-
-//should be an object with each key value pair being key and corresponding name . Works !! now i can easily export it to display each summoners 3 most played champs
+export default champInfo
