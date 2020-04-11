@@ -5,6 +5,7 @@ import Search from './Search.js'
 import MostPlayedChamps from './mostPlayedChamps.js';
 import loading from '../images/teemo_dance.gif'
 import exampleProfileData from '../example/exampleProfileData'
+import exampleChampData   from '../example/exampleChampData'
 
 //right now only works with NA accounts
 //can set up a drop down menu for user to select region
@@ -15,7 +16,8 @@ class App extends React.Component {
     this.state = {
       firstSearch:true,
       loaded:false,
-      currentProfile: exampleProfileData
+      currentProfile: exampleProfileData,
+      currentChamps: exampleChampData
     }
   }
 
@@ -28,6 +30,7 @@ class App extends React.Component {
       key : this.props.RIOT_API_KEY,
       search: search
     }
+
     this.props.searchForProfile (searchObj, (profile) =>
       this.setState({
         firstSearch:false,
@@ -35,6 +38,8 @@ class App extends React.Component {
         currentProfile: profile
       })
     );
+
+
   }
 
   render() {
@@ -42,20 +47,7 @@ class App extends React.Component {
     let {loaded} = this.state;
 
 
-    if(!loaded){
-      return (
-        <div className="loading">
-          <h1>LOLStats</h1>
 
-          <nav className="nav">
-           <Search handleSearchChange={this.getProfile.bind(this)}/>
-           </nav>
-
-           <h1>Loading...</h1>
-           <img src={loading} alt="" />
-        </div>
-      )
-    }
 
 
       return (
@@ -67,7 +59,7 @@ class App extends React.Component {
 
           <div className ='prof'>
             <Profile profile={this.state.currentProfile} />
-            <MostPlayedChamps />
+            <MostPlayedChamps champs={this.state.currentChamps}/>
           </div>
 
         </div>
