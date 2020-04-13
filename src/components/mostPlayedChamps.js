@@ -4,7 +4,7 @@ var MostPlayedChamps = ({champs}) => {
   return (
   <div className="everything">
     <div className="champTitle">
-      <h3> Five Most Played Champs</h3>
+      <h3>Most Played Champs</h3>
     </div>
 
     <div className="champList">
