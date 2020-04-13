@@ -1,5 +1,6 @@
 ﻿
 //need to just get the name and key for each champ. IE for aatrox just need key:266, and name: AAtrox
+/*
 var champData = {
   "type": "champion",
   "format": "standAloneComplex",
@@ -7380,7 +7381,7 @@ for(var key in champData['data']){
     champions[currentChampKey] = champData['data'][key]['name'];
   }
 }
-
+*/
 //wanna keep track of all this info since it was a long process finding it but this is the object the algorithm creates
 
 var champInfo = {
