@@ -14,28 +14,41 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      firstSearch:true,
       loaded:false,
       currentProfile: exampleProfileData,
+      encryptedId : '',
       currentChamps: exampleChampData
     }
   }
 
-  componentDidMount() {
 
-  }
 
   getProfile(search){
     let searchObj = {
       key : this.props.RIOT_API_KEY,
       search: search
-    }
+    };
 
     this.props.searchForProfile (searchObj, (profile) =>
+
       this.setState({
         firstSearch:false,
         loaded:true,
-        currentProfile: profile
+        currentProfile: profile,
+        encryptedId: this.currentProfile['id']
+      })
+    );
+
+    let searchChamps ={
+      encyptId: this.state.encryptedId,
+      key: this.props.RIOT_API_KEY
+    };
+
+    console.log(searchChamps)
+
+    this.props.searchForChamps (searchChamps, (champData) =>
+      this.setState({
+        currentChamps: champData
       })
     );
 
@@ -45,9 +58,6 @@ class App extends React.Component {
   render() {
 
     let {loaded} = this.state;
-
-
-
 
 
       return (
