@@ -1,4 +1,5 @@
 import React from 'react';
+import getChampionName from './getChampionName.js'
 
 var MostPlayedChamps = ({champs}) => {
   return (
@@ -10,7 +11,7 @@ var MostPlayedChamps = ({champs}) => {
     <div className="champList">
       {champs.map((champ,index) => (
 
-      <h3>{champ["championId"]}</h3>
+      <h3>{getChampionName(champ["championId"])}</h3>
 
 
 
