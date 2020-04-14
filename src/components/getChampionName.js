@@ -1,9 +1,9 @@
 //converts the championid to a champion name
 import champInfo from '../champ.js'
-//console.log(champInfo);
+
 var getChampionName = (idPair) =>{
   let champName = champInfo[idPair];
-  console.log(champName);
+  //console.log(champName);
   return champName
 };
 
