@@ -8,10 +8,14 @@ var searchForProfile = ({search,key},cb) => {
      .then(res => res.json())
      .then(
        (result) =>{
+         // this.setState({
+           // encryptedId: result.id
+          //})
 
          if(cb){
            console.log('Sucess!')
            cb(result)
+
          }
 
        },

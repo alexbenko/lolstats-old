@@ -51,7 +51,7 @@ class App extends React.Component {
     );
    // console.log(this.state.encryptedId);
 
-    /*let searchChamps ={
+    let searchChamps ={
       encyptId: this.state.encryptedId,
       key: this.props.RIOT_API_KEY
     };
@@ -63,7 +63,7 @@ class App extends React.Component {
         currentChamps: champData
       })
     );
-      */
+
 
   }
 
