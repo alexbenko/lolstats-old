@@ -4,6 +4,7 @@ import Profile from './Profile.js'
 import Search from './Search.js'
 import MostPlayedChamps from './mostPlayedChamps.js';
 import loading from '../images/teemo_dance.gif'
+import RIOT_API_KEY from '../config/rito.js';
 import exampleProfileData from '../example/exampleProfileData'
 import exampleChampData   from '../example/exampleChampData'
 
@@ -21,7 +22,17 @@ class App extends React.Component {
     }
   }
 
-
+/*  componentDidMount(){
+    let proxy = 'https://cors-anywhere.herokuapp.com/';
+    let target = `https://na1.api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/${this.state.currentProfile.id}?api_key=${RIOT_API_KEY}`;
+    fetch(proxy + target)
+      .then((response) => response.json())
+      .then(result => {
+        console.log(result);
+        this.setState({currentChamps:result})
+      });
+  }
+*/
 
   getProfile(search){
     let searchObj = {
@@ -35,11 +46,12 @@ class App extends React.Component {
         firstSearch:false,
         loaded:true,
         currentProfile: profile,
-        encryptedId: this.currentProfile['id']
+        encryptedId: profile['id']
       })
     );
+   // console.log(this.state.encryptedId);
 
-    let searchChamps ={
+    /*let searchChamps ={
       encyptId: this.state.encryptedId,
       key: this.props.RIOT_API_KEY
     };
@@ -51,7 +63,7 @@ class App extends React.Component {
         currentChamps: champData
       })
     );
-
+      */
 
   }
 
