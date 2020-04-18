@@ -17,11 +17,12 @@ class App extends React.Component {
     this.state = {
       loaded:false,
       currentProfile: exampleProfileData,
-      encryptedId : '',
       currentChamps: exampleChampData
     }
   }
 
+  //maybe componentDidUpdate??
+  //https://reactjs.org/docs/react-component.html#componentdidmount
 /*  componentDidMount(){
     let proxy = 'https://cors-anywhere.herokuapp.com/';
     let target = `https://na1.api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/${this.state.currentProfile.id}?api_key=${RIOT_API_KEY}`;
@@ -40,23 +41,26 @@ class App extends React.Component {
       search: search
     };
 
+    console.log('Profile:' ,searchObj);
+
     this.props.searchForProfile (searchObj, (profile) =>
 
       this.setState({
-        firstSearch:false,
+
         loaded:true,
         currentProfile: profile,
-        encryptedId: profile['id']
+
       })
     );
+    console.log('This one: ', this.state.currentProfile["id"])
    // console.log(this.state.encryptedId);
 
     let searchChamps ={
-      encyptId: this.state.encryptedId,
+      encyptId: this.state.currentProfile["id"],
       key: this.props.RIOT_API_KEY
     };
 
-    console.log(searchChamps)
+    console.log(searchChamps.encyptId);
 
     this.props.searchForChamps (searchChamps, (champData) =>
       this.setState({
