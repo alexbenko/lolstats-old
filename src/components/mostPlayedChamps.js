@@ -9,6 +9,8 @@ var MostPlayedChamps = ({champs}) => {
     </div>
 
     <div className="champList">
+
+
       {champs.map((champ) => {
 
         return <h3>{getChampionName(champ["championId"])}</h3>
