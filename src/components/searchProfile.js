@@ -7,7 +7,7 @@ var searchForProfile = ({search,key},cb) => {
     var target = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${search}?api_key=${key}`;
 
     axios.get(proxy + target)
-      .then(res =>{
+      .then((res) =>{
         console.log(res.data);
         cb(res.data);
       })
